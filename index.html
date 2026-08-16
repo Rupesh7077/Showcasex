@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShowCaseX — Build Your Professional Portfolio</title>
+  <meta name="description" content="Generate a polished, responsive developer and professional portfolio in seconds with AI prompt or manual builder. No setup, instant shareable link, clean themes, and standalone export.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="app-body">
+
+  <!-- ========================================================
+       TOP NOTIFICATION TOAST
+       ======================================================== -->
+  <div id="toast" class="toast" role="alert" aria-live="polite">
+    <div class="toast-icon" id="toastIcon"></div>
+    <span id="toastMessage" class="toast-message">Notification</span>
+  </div>
+
+  <!-- ========================================================
+       VIEW 1: LANDING PAGE / HOME
+       ======================================================== -->
+  <section id="view-home" class="app-view active">
+    <!-- Navbar -->
+    <header class="site-header">
+      <div class="nav-container">
+        <a href="#home" class="brand-logo" id="navLogo">
+          <div class="logo-mark">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <span class="brand-name">ShowCase<span class="brand-accent">X</span></span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#how-it-works" class="nav-link">How It Works</a>
+          <button type="button" class="btn btn-ghost btn-sm" id="homeAiPromptNavBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            ✨ AI Prompt
+          </button>
+          <button type="button" class="btn btn-secondary btn-sm" id="homeDemoBtn">See Demo</button>
+          <button type="button" class="btn btn-primary btn-sm" id="homeStartBtn">Build Your Portfolio</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+      <section class="hero-section">
+        <div class="hero-container">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Instant AI & Static Portfolio Generator
+          </div>
+          <h1 class="hero-title">
+            Build your portfolio.<br>
+            <span class="text-gradient">Showcase your work.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Create a fast, responsive, and minimalist developer portfolio in minutes. Enter your projects manually or generate everything in seconds from a single prompt with Gemini AI.
+          </p>
+
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary btn-lg" id="heroBuildBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+              Build Your Portfolio
+            </button>
+            <button type="button" class="btn btn-secondary btn-lg" id="heroAiPromptBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              ✨ Generate with AI Prompt
+            </button>
+            <button type="button" class="btn btn-outline btn-lg" id="heroDemoBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+              See Live Demo
+            </button>
+          </div>
+
+          <div class="hero-meta">
+            <div class="meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Powered by Gemini AI</span>
+            </div>
+            <div class="meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Instant shareable link</span>
+            </div>
+            <div class="meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Standalone HTML download</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features" class="features-section">
+        <div class="section-header">
+          <h2 class="section-title">Engineered for clarity and speed</h2>
+          <p class="section-subtitle">Everything you need to present your career professionally without bloated templates.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">AI-Powered Generation</h3>
+            <p class="feature-desc">Describe your experience in one sentence or paragraph. Gemini AI automatically extracts your bio, skills, and projects into a polished portfolio.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Easy Manual Builder</h3>
+            <p class="feature-desc">Fill out an organized, step-by-step form. Add multiple projects, work experiences, education degrees, and custom skills.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Minimalist Light & Dark Themes</h3>
+            <p class="feature-desc">Switch seamlessly between clean Minimal Light and modern Slate Dark themes with high-contrast typography.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Shareable Encoded URL</h3>
+            <p class="feature-desc">Your portfolio is encoded directly in the URL hash. Share your link with anyone and it works instantly without a database.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Download Standalone HTML</h3>
+            <p class="feature-desc">Export a self-contained single HTML file with embedded styling that can be hosted on GitHub Pages, Netlify, or your custom domain.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works Section -->
+      <section id="how-it-works" class="how-section">
+        <div class="section-header">
+          <h2 class="section-title">How It Works</h2>
+          <p class="section-subtitle">Three steps to your new professional presence.</p>
+        </div>
+
+        <div class="steps-container">
+          <div class="step-card">
+            <div class="step-num">01</div>
+            <h3 class="step-title">Describe or Enter Details</h3>
+            <p class="step-desc">Use AI auto-fill or enter your bio, work history, projects, tech stack, and social profiles manually.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">02</div>
+            <h3 class="step-title">Preview & Pick Theme</h3>
+            <p class="step-desc">See your changes generated instantly in a live view and select your preferred visual theme.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">03</div>
+            <h3 class="step-title">Share & Host</h3>
+            <p class="step-desc">Copy your permanent shareable URL or download the clean single-file HTML version.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Banner -->
+      <section class="cta-banner-section">
+        <div class="cta-banner">
+          <h2 class="cta-title">Ready to showcase your journey?</h2>
+          <p class="cta-desc">Join thousands of software engineers, designers, and students building their portfolios with ShowCaseX.</p>
+          <div class="cta-banner-actions">
+            <button type="button" class="btn btn-primary btn-lg" id="bottomBuildBtn">
+              Build Your Portfolio Now
+            </button>
+            <button type="button" class="btn btn-outline btn-lg text-white" id="bottomAiBtn">
+              ✨ Auto-Generate with AI
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <div class="brand-logo footer-logo">
+            <div class="logo-mark sm">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              </svg>
+            </div>
+            <span>ShowCase<span class="brand-accent">X</span></span>
+          </div>
+          <p class="footer-tagline">Build your portfolio. Showcase your work.</p>
+        </div>
+        <div class="footer-rights">
+          <p>&copy; 2026 ShowCaseX. Powered by Google Gemini AI. Zero external tracking.</p>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ========================================================
+       VIEW 2: PORTFOLIO BUILDER
+       ======================================================== -->
+  <section id="view-builder" class="app-view">
+    <!-- Builder Navigation Bar -->
+    <header class="builder-header">
+      <div class="builder-header-inner">
+        <div class="builder-header-left">
+          <button type="button" class="btn-icon" id="builderBackHomeBtn" title="Back to Home">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"/>
+              <polyline points="12 19 5 12 12 5"/>
+            </svg>
+          </button>
+          <div class="builder-brand">
+            <span class="builder-title">Portfolio Builder</span>
+            <span class="save-status" id="saveStatus">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Auto-saved
+            </span>
+          </div>
+        </div>
+
+        <div class="builder-header-actions">
+          <button type="button" class="btn btn-secondary btn-sm btn-ai-sparkle" id="builderAiModalOpenBtn" title="Auto-fill form using AI">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            ✨ AI Auto-Fill
+          </button>
+          <button type="button" class="btn btn-secondary btn-sm" id="builderLoadDemoBtn" title="Fill form with example data">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Load Demo
+          </button>
+          <button type="button" class="btn btn-ghost btn-sm text-danger" id="builderClearBtn" title="Reset all fields">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            Clear Data
+          </button>
+          <button type="button" class="btn btn-primary btn-sm" id="builderGenerateTopBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Generate Portfolio
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Builder Workspace -->
+    <div class="builder-workspace">
+      <!-- Section Navigation Sidebar/Tabs -->
+      <aside class="builder-sidebar">
+        <nav class="builder-tabs" id="builderTabNav">
+          <button type="button" class="tab-btn active" data-tab="tab-personal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>1. Personal</span>
+          </button>
+          <button type="button" class="tab-btn" data-tab="tab-contact">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>2. Contact & Social</span>
+          </button>
+          <button type="button" class="tab-btn" data-tab="tab-skills">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span>3. Skills</span>
+          </button>
+          <button type="button" class="tab-btn" data-tab="tab-experience">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <span>4. Experience</span>
+          </button>
+          <button type="button" class="tab-btn" data-tab="tab-education">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <span>5. Education</span>
+          </button>
+          <button type="button" class="tab-btn" data-tab="tab-projects">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <span>6. Projects</span>
+          </button>
+          <button type="button" class="tab-btn" data-tab="tab-appearance">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a7 7 0 0 0 7 7c0 2-2 3-2 3s.5 1 .5 2c0 2-2 3-2 3s.5 1 .5 2a7 7 0 0 1-7-7c0-2 2-3 2-3s-.5-1-.5-2c0-2 2-3 2-3s-.5-1-.5-2"/></svg>
+            <span>7. Appearance</span>
+          </button>
+        </nav>
+      </aside>
+
+      <!-- Main Form Area -->
+      <main class="builder-main">
+        <form id="portfolioForm" class="builder-form" novalidate>
+          
+          <!-- TAB 1: PERSONAL -->
+          <div class="form-tab-content active" id="tab-personal">
+            <div class="form-section-header">
+              <h2 class="form-section-title">Personal Information</h2>
+              <p class="form-section-desc">The basic intro details that headline your portfolio.</p>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group col-12">
+                <label for="inputFullName" class="form-label">Full Name <span class="required">*</span></label>
+                <input type="text" id="inputFullName" class="form-input" placeholder="e.g. Alex Morgan" required>
+                <span class="field-error" id="errFullName">Please enter your name.</span>
+              </div>
+
+              <div class="form-group col-12">
+                <label for="inputTitle" class="form-label">Professional Title <span class="required">*</span></label>
+                <input type="text" id="inputTitle" class="form-input" placeholder="e.g. Senior Full-Stack Engineer & Designer" required>
+                <span class="field-error" id="errTitle">Please enter your professional title.</span>
+              </div>
+
+              <div class="form-group col-12">
+                <div class="label-with-action">
+                  <label for="inputBio" class="form-label">Short Bio / About Me</label>
+                  <button type="button" class="btn-text-ai" id="btnAiPolishBio" title="Enhance bio using Gemini AI">
+                    ✨ AI Polish Bio
+                  </button>
+                </div>
+                <textarea id="inputBio" class="form-textarea" rows="4" placeholder="Brief summary of who you are, what you build, and what drives your passion for software development..."></textarea>
+              </div>
+
+              <div class="form-group col-12">
+                <label for="inputAvatarUrl" class="form-label">Profile Image URL</label>
+                <div class="avatar-input-row">
+                  <input type="url" id="inputAvatarUrl" class="form-input" placeholder="https://images.unsplash.com/... or your avatar URL">
+                  <div class="avatar-preview-box" id="avatarPreviewContainer">
+                    <img id="avatarPreviewImg" src="" alt="Avatar Preview" class="avatar-preview-img hidden">
+                    <span id="avatarPreviewPlaceholder" class="avatar-placeholder-text">No Image</span>
+                  </div>
+                </div>
+                <span class="field-hint">Paste a link to your photo (e.g. GitHub avatar or Unsplash URL). Leave empty if you prefer an initials badge.</span>
+              </div>
+
+              <div class="form-group col-12">
+                <label for="inputResumeUrl" class="form-label">Resume / CV URL <span class="badge-optional">Optional</span></label>
+                <input type="url" id="inputResumeUrl" class="form-input" placeholder="https://yourdomain.com/resume.pdf or Google Drive link">
+                <span class="field-hint">Adds a direct "View Resume" button to your hero section.</span>
+              </div>
+            </div>
+
+            <div class="tab-footer-nav">
+              <button type="button" class="btn btn-primary next-tab-btn" data-next="tab-contact">
+                Next: Contact & Social →
+              </button>
+            </div>
+          </div>
+
+          <!-- TAB 2: CONTACT & SOCIAL -->
+          <div class="form-tab-content" id="tab-contact">
+            <div class="form-section-header">
+              <h2 class="form-section-title">Contact & Social Links</h2>
+              <p class="form-section-desc">How potential employers, clients, or collaborators can reach you.</p>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group col-6">
+                <label for="inputEmail" class="form-label">Email Address</label>
+                <input type="email" id="inputEmail" class="form-input" placeholder="alex@example.com">
+              </div>
+
+              <div class="form-group col-6">
+                <label for="inputPhone" class="form-label">Phone Number <span class="badge-optional">Optional</span></label>
+                <input type="tel" id="inputPhone" class="form-input" placeholder="+1 (555) 019-2834">
+              </div>
+
+              <div class="form-group col-6">
+                <label for="inputLocation" class="form-label">Location <span class="badge-optional">Optional</span></label>
+                <input type="text" id="inputLocation" class="form-input" placeholder="San Francisco, CA / Remote">
+              </div>
+
+              <div class="form-group col-6">
+                <label for="inputWebsite" class="form-label">Personal Website</label>
+                <input type="url" id="inputWebsite" class="form-input" placeholder="https://alexmorgan.dev">
+              </div>
+
+              <div class="form-group col-6">
+                <label for="inputGithub" class="form-label">GitHub URL</label>
+                <input type="url" id="inputGithub" class="form-input" placeholder="https://github.com/username">
+              </div>
+
+              <div class="form-group col-6">
+                <label for="inputLinkedin" class="form-label">LinkedIn URL</label>
+                <input type="url" id="inputLinkedin" class="form-input" placeholder="https://linkedin.com/in/username">
+              </div>
+
+              <div class="form-group col-6">
+                <label for="inputTwitter" class="form-label">Twitter / X or Other Social</label>
+                <input type="url" id="inputTwitter" class="form-input" placeholder="https://x.com/username">
+              </div>
+            </div>
+
+            <div class="tab-footer-nav">
+              <button type="button" class="btn btn-secondary prev-tab-btn" data-prev="tab-personal">← Back</button>
+              <button type="button" class="btn btn-primary next-tab-btn" data-next="tab-skills">Next: Skills →</button>
+            </div>
+          </div>
+
+          <!-- TAB 3: SKILLS -->
+          <div class="form-tab-content" id="tab-skills">
+            <div class="form-section-header">
+              <h2 class="form-section-title">Skills & Technologies</h2>
+              <p class="form-section-desc">Add technical skills, tools, frameworks, and programming languages.</p>
+            </div>
+
+            <div class="skills-input-wrapper">
+              <div class="skill-entry-box">
+                <input type="text" id="inputSkillItem" class="form-input" placeholder="Type a skill and press Enter or click Add (e.g. React, TypeScript, Python)...">
+                <button type="button" class="btn btn-secondary" id="btnAddSkill">Add Skill</button>
+              </div>
+
+              <!-- Quick suggestions -->
+              <div class="preset-skills-row">
+                <span class="preset-label">Quick suggestions:</span>
+                <div class="preset-chips" id="presetChipsContainer">
+                  <button type="button" class="preset-chip" data-skill="TypeScript">+ TypeScript</button>
+                  <button type="button" class="preset-chip" data-skill="React">+ React</button>
+                  <button type="button" class="preset-chip" data-skill="Node.js">+ Node.js</button>
+                  <button type="button" class="preset-chip" data-skill="Python">+ Python</button>
+                  <button type="button" class="preset-chip" data-skill="Next.js">+ Next.js</button>
+                  <button type="button" class="preset-chip" data-skill="PostgreSQL">+ PostgreSQL</button>
+                  <button type="button" class="preset-chip" data-skill="Docker">+ Docker</button>
+                  <button type="button" class="preset-chip" data-skill="Tailwind CSS">+ Tailwind CSS</button>
+                  <button type="button" class="preset-chip" data-skill="GraphQL">+ GraphQL</button>
+                  <button type="button" class="preset-chip" data-skill="AWS">+ AWS</button>
+                  <button type="button" class="preset-chip" data-skill="UI/UX Design">+ UI/UX Design</button>
+                  <button type="button" class="preset-chip" data-skill="Git">+ Git</button>
+                </div>
+              </div>
+
+              <!-- Active skill tags container -->
+              <div class="skill-tags-list" id="skillTagsContainer">
+                <!-- Skill chips rendered via JS -->
+              </div>
+              <span class="field-hint" id="skillsCountHint">0 skills added.</span>
+            </div>
+
+            <div class="tab-footer-nav">
+              <button type="button" class="btn btn-secondary prev-tab-btn" data-prev="tab-contact">← Back</button>
+              <button type="button" class="btn btn-primary next-tab-btn" data-next="tab-experience">Next: Experience →</button>
+            </div>
+          </div>
+
+          <!-- TAB 4: EXPERIENCE -->
+          <div class="form-tab-content" id="tab-experience">
+            <div class="form-section-header with-action">
+              <div>
+                <h2 class="form-section-title">Work Experience</h2>
+                <p class="form-section-desc">Add previous and current roles, companies, and achievements.</p>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm" id="btnAddExperience">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Add Experience
+              </button>
+            </div>
+
+            <div id="experienceListContainer" class="dynamic-card-list">
+              <!-- Dynamically populated experience cards -->
+            </div>
+
+            <div class="tab-footer-nav">
+              <button type="button" class="btn btn-secondary prev-tab-btn" data-prev="tab-skills">← Back</button>
+              <button type="button" class="btn btn-primary next-tab-btn" data-next="tab-education">Next: Education →</button>
+            </div>
+          </div>
+
+          <!-- TAB 5: EDUCATION -->
+          <div class="form-tab-content" id="tab-education">
+            <div class="form-section-header with-action">
+              <div>
+                <h2 class="form-section-title">Education & Certifications</h2>
+                <p class="form-section-desc">List your degrees, universities, bootcamps, or key credentials.</p>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm" id="btnAddEducation">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Add Education
+              </button>
+            </div>
+
+            <div id="educationListContainer" class="dynamic-card-list">
+              <!-- Dynamically populated education cards -->
+            </div>
+
+            <div class="tab-footer-nav">
+              <button type="button" class="btn btn-secondary prev-tab-btn" data-prev="tab-experience">← Back</button>
+              <button type="button" class="btn btn-primary next-tab-btn" data-next="tab-projects">Next: Projects →</button>
+            </div>
+          </div>
+
+          <!-- TAB 6: PROJECTS -->
+          <div class="form-tab-content" id="tab-projects">
+            <div class="form-section-header with-action">
+              <div>
+                <h2 class="form-section-title">Projects</h2>
+                <p class="form-section-desc">Showcase your best open-source apps, client work, or side projects.</p>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm" id="btnAddProject">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Add Project
+              </button>
+            </div>
+
+            <div id="projectListContainer" class="dynamic-card-list">
+              <!-- Dynamically populated project cards -->
+            </div>
+
+            <div class="tab-footer-nav">
+              <button type="button" class="btn btn-secondary prev-tab-btn" data-prev="tab-education">← Back</button>
+              <button type="button" class="btn btn-primary next-tab-btn" data-next="tab-appearance">Next: Appearance →</button>
+            </div>
+          </div>
+
+          <!-- TAB 7: APPEARANCE & GENERATE -->
+          <div class="form-tab-content" id="tab-appearance">
+            <div class="form-section-header">
+              <h2 class="form-section-title">Appearance & Theme</h2>
+              <p class="form-section-desc">Choose a styling theme for your generated portfolio.</p>
+            </div>
+
+            <div class="theme-picker-grid">
+              <label class="theme-option-card">
+                <input type="radio" name="portfolioTheme" value="minimal-light" checked>
+                <div class="theme-card-body">
+                  <div class="theme-preview-box preview-light">
+                    <div class="preview-line w-50"></div>
+                    <div class="preview-line w-80"></div>
+                    <div class="preview-pill"></div>
+                  </div>
+                  <div class="theme-card-info">
+                    <div class="theme-name">Minimal Light</div>
+                    <div class="theme-desc">Clean, crisp editorial aesthetic with maximum legibility.</div>
+                  </div>
+                </div>
+              </label>
+
+              <label class="theme-option-card">
+                <input type="radio" name="portfolioTheme" value="modern-dark">
+                <div class="theme-card-body">
+                  <div class="theme-preview-box preview-dark">
+                    <div class="preview-line w-50"></div>
+                    <div class="preview-line w-80"></div>
+                    <div class="preview-pill"></div>
+                  </div>
+                  <div class="theme-card-info">
+                    <div class="theme-name">Modern Dark</div>
+                    <div class="theme-desc">Sophisticated deep charcoal palette with high-contrast elements.</div>
+                  </div>
+                </div>
+              </label>
+
+              <label class="theme-option-card">
+                <input type="radio" name="portfolioTheme" value="indigo-slate">
+                <div class="theme-card-body">
+                  <div class="theme-preview-box preview-indigo">
+                    <div class="preview-line w-50"></div>
+                    <div class="preview-line w-80"></div>
+                    <div class="preview-pill"></div>
+                  </div>
+                  <div class="theme-card-info">
+                    <div class="theme-name">Indigo Slate</div>
+                    <div class="theme-desc">Sleek tech-forward theme with subtle indigo highlights.</div>
+                  </div>
+                </div>
+              </label>
+            </div>
+
+            <!-- Final Big Generate Action -->
+            <div class="generate-box">
+              <div class="generate-box-content">
+                <h3 class="generate-box-title">Everything set up?</h3>
+                <p class="generate-box-desc">Generate your live portfolio view, get your shareable link, and download your HTML.</p>
+              </div>
+              <button type="button" class="btn btn-primary btn-lg" id="builderGenerateBottomBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Generate Portfolio
+              </button>
+            </div>
+
+            <div class="tab-footer-nav">
+              <button type="button" class="btn btn-secondary prev-tab-btn" data-prev="tab-projects">← Back</button>
+            </div>
+          </div>
+
+        </form>
+      </main>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       VIEW 3: PORTFOLIO PREVIEW / SHARED PORTFOLIO
+       ======================================================== -->
+  <section id="view-preview" class="app-view">
+    <!-- Floating Control Bar -->
+    <header class="portfolio-control-bar" id="portfolioControlBar">
+      <div class="control-bar-inner">
+        <div class="control-bar-left">
+          <button type="button" class="btn btn-secondary btn-sm" id="previewBackBuilderBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Edit in Builder
+          </button>
+          <button type="button" class="btn btn-ghost btn-sm" id="previewHomeBtn">Home</button>
+        </div>
+
+        <div class="control-bar-center">
+          <div class="theme-switcher-pill">
+            <button type="button" class="theme-switch-btn active" id="btnThemeLight" title="Minimal Light">Light</button>
+            <button type="button" class="theme-switch-btn" id="btnThemeDark" title="Modern Dark">Dark</button>
+            <button type="button" class="theme-switch-btn" id="btnThemeIndigo" title="Indigo Slate">Indigo</button>
+          </div>
+        </div>
+
+        <div class="control-bar-right">
+          <button type="button" class="btn btn-secondary btn-sm" id="btnDownloadHtml" title="Download standalone single-file HTML">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download HTML
+          </button>
+          <button type="button" class="btn btn-primary btn-sm" id="btnShareModalOpen">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            Share Portfolio
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- The Dynamically Rendered Portfolio Container -->
+    <div id="portfolioCanvas" class="portfolio-canvas theme-minimal-light">
+      <!-- Injected by script.js -->
+    </div>
+  </section>
+
+  <!-- ========================================================
+       AI AUTO-FILL PROMPT MODAL
+       ======================================================== -->
+  <div id="aiPromptModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card modal-lg">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-icon ai-gradient-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3 class="modal-title">Generate Portfolio with Gemini AI</h3>
+        </div>
+        <button type="button" class="modal-close-btn" id="aiModalCloseBtn" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p class="modal-desc">
+          Paste your resume text, LinkedIn summary, or describe yourself in plain English. Gemini AI will automatically extract your personal info, title, bio, skills, experience, and projects!
+        </p>
+
+        <div class="ai-prompt-box">
+          <label for="aiPromptTextarea" class="form-label">Tell AI about yourself:</label>
+          <textarea id="aiPromptTextarea" class="form-textarea" rows="5" placeholder="e.g. I am Jordan Lee, a Senior Full-Stack Engineer with 5 years experience at Stripe and Veloce Labs. Skilled in TypeScript, React, Go, PostgreSQL, AWS. Key project: CloudPulse monitoring tool. Education: UC Berkeley 2020."></textarea>
+        </div>
+
+        <div class="ai-sample-prompts">
+          <span class="preset-label">Try an example:</span>
+          <div class="sample-prompt-chips">
+            <button type="button" class="sample-chip" data-prompt="I am Elena Rostova, Senior Frontend Architect with 6 years experience in React, Next.js, WebGL, TypeScript. Worked at Spotify & Figma. Built open-source FlowUI library. Degree in CS from MIT 2019.">
+              Frontend Architect
+            </button>
+            <button type="button" class="sample-chip" data-prompt="I am David Kim, a Backend & DevOps Engineer specializing in Python, Go, Kubernetes, Kafka, and AWS. 4 years at CloudScale. Built MicroQueue distributed worker. Education: Stanford CS 2021.">
+              Backend / Cloud Engineer
+            </button>
+            <button type="button" class="sample-chip" data-prompt="I am Maya Patel, Lead Product & UI/UX Designer. 5 years designing mobile and SaaS apps at Airbnb. Skilled in Figma, Design Systems, Prototyping, CSS. Rhode Island School of Design 2019.">
+              Product / UI/UX Designer
+            </button>
+          </div>
+        </div>
+
+        <div class="ai-modal-footer">
+          <div class="ai-status-indicator" id="aiStatusIndicator">
+            <span class="ai-spinner hidden" id="aiSpinner"></span>
+            <span id="aiStatusText" class="ai-status-text">Ready to generate</span>
+          </div>
+          <div class="ai-modal-actions">
+            <button type="button" class="btn btn-secondary" id="aiCancelBtn">Cancel</button>
+            <button type="button" class="btn btn-primary" id="aiSubmitBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              Generate Portfolio
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       SHARE PORTFOLIO MODAL
+       ======================================================== -->
+  <div id="shareModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </div>
+          <h3 class="modal-title">Share Your Portfolio</h3>
+        </div>
+        <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p class="modal-desc">
+          Anyone with this link can view your generated portfolio. All data is securely encoded in the link itself — no backend or account needed!
+        </p>
+
+        <div class="share-input-group">
+          <input type="text" id="shareUrlInput" class="form-input share-url-input" readonly>
+          <button type="button" class="btn btn-primary" id="modalCopyLinkBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy Link
+          </button>
+        </div>
+
+        <div class="modal-actions-extra">
+          <button type="button" class="btn btn-secondary btn-sm" id="modalOpenTabBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Open in New Tab
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       CLEAR DATA CONFIRMATION MODAL
+       ======================================================== -->
+  <div id="clearConfirmModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card modal-sm">
+      <div class="modal-header">
+        <h3 class="modal-title text-danger">Clear Portfolio Data?</h3>
+        <button type="button" class="modal-close-btn" id="clearModalCloseBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">
+          Are you sure you want to reset all fields? This will clear your saved draft from your browser's local storage.
+        </p>
+        <div class="modal-footer-btns">
+          <button type="button" class="btn btn-secondary" id="clearCancelBtn">Cancel</button>
+          <button type="button" class="btn btn-danger" id="clearConfirmBtn">Yes, Clear All</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
